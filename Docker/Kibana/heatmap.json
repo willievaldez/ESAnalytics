@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": {
+      "%context%": true,
+      "%timefield%": "timestamp",
+      "index": "anthro*", 
+      "body": {
+        "size": 10000,
+        "_source": ["locX", "locY", "timestamp"]
+      }
+    },
+    "format": {"property": "hits.hits"}
+  },
+  "transform": [
+    {
+      "calculate": "datum._source.locX",
+      "as": "locX"
+    },
+    {
+      "calculate": "datum._source.locY",
+      "as": "locY"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "locX",
+      "type": "quantitative",
+      "bin": {"maxbins": 40},
+      "axis": {"grid": true, "gridColor": "#444", "gridOpacity": 0.5}
+    },
+    "y": {
+      "field": "locY",
+      "type": "quantitative",
+      "bin": {"maxbins": 40},
+      "axis": {"grid": true, "gridColor": "#444", "gridOpacity": 0.5}
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "scale": {"scheme": "viridis"},
+      "title": "Density"
+    },
+    "tooltip": [
+      {"field": "locX", "bin": true, "title": "X Range"},
+      {"field": "locY", "bin": true, "title": "Y Range"},
+      {"aggregate": "count", "type": "quantitative", "title": "Event Count"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false
+    }
+  }
+}
