@@ -13,10 +13,10 @@ Simply call `UESAnalytics::EmitAnalytic` either in C++ or blueprint. The followi
 ## Deploying The Cluster
  * Docker
     * Install Docker Desktop: https://www.docker.com/products/docker-desktop/
-    * Open a terminal at `ESAnalytics/Source/ESAnalytics/Docker`
+    * Open a terminal at `ESAnalytics/Docker`
     * Run `docker compose up -d`
  * Configure Unreal with API key
-    * After `docker compose` finishes, open `ESAnalytics/Source/ESAnalytics/Docker/api_key.txt`
+    * After `docker compose` finishes, open `ESAnalytics/Docker/api_key.txt`
     * Open `Config/DefaultGame.ini` and copy line 2 of `api_key.txt` into the following:
 ```
 [/Script/ESAnalytics.ESAnalyticsSettings]
@@ -32,11 +32,11 @@ Analytics.ApiKey=<paste here>
     * Repeat step "Configure Unreal with API key"
 
 ## Configurations
- * Analytics Stack: `ESAnalytics/Source/ESAnalytics/Docker/.env`
+ * Analytics Stack: `ESAnalytics/Docker/.env`
     * ELASTIC_PASSWORD
+    * ELASTIC_INDEX
     * KIBANA_USER
     * KIBANA_PASSWORD
-    * ELASTIC_INDEX
  * UE: `ESAnalytics/Source/ESAnalytics/Private/ESAnalyticsSettings.h`
     * Configs can/should be modified in editor `Project Settings`. They will be saved in `DefaultGame.ini`
         * bEnabled (CVAR `Analytics.Enabled`)

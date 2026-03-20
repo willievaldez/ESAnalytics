@@ -57,8 +57,8 @@ services:
     profiles: ["apikeygen"]
     restart: "no"
     environment:
-      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - ELASTIC_INDEX=${ELASTIC_INDEX}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     volumes:
       - ./apikeygen.sh:/apikeygen.sh:ro
       - ./api_key.txt:/api_key.txt
