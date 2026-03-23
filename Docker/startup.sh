@@ -8,12 +8,12 @@ done
     curl -u "elastic:${ELASTIC_PASSWORD}" -X POST "http://elasticsearch:9200/_security/role/kibana_system_access" -H "Content-Type: application/json" -d'
     {
         "cluster": ["all"],
-        "indices": [
-        {
-            "names": [".kibana*", ".apm*"],
-            "privileges": ["all"],
-            "allow_restricted_indices": true
-        }
+            "indices": [
+            {
+                "names": [".kibana*", ".apm*"],
+                "privileges": ["all"],
+                "allow_restricted_indices": true
+            }
         ]
     }'
     echo "Creating '${KIBANA_USER}' user"

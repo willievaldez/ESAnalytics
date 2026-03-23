@@ -15,7 +15,7 @@ DEFINE_LOG_CATEGORY_STATIC(LogESAnalytics, Log, Log);
 
 void FESAnalyticsModule::StartupModule()
 {
-	UESAnalyticsSettings* Settings = GetMutableDefault<UESAnalyticsSettings>();
+	const UESAnalyticsSettings* Settings = GetDefault<UESAnalyticsSettings>();
 	if (!IsValid(Settings))
 	{
 		return;

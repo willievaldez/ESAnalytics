@@ -39,11 +39,11 @@ Analytics.ApiKey=<paste here>
     * KIBANA_PASSWORD
  * UE: `ESAnalytics/Source/ESAnalytics/Private/ESAnalyticsSettings.h`
     * Configs can/should be modified in editor `Project Settings`. They will be saved in `DefaultGame.ini`
-        * bEnabled (CVAR `Analytics.Enabled`)
-        * Endpoint (CVAR `Analytics.Endpoint`)
-        * ApiKey (CVAR `Analytics.ApiKey`)
-        * Index (CVAR `Analytics.Index`)
-        * MaxPayloadSize (CVAR `Analytics.MaxPayloadSize`)
+        * bEnabled
+        * Endpoint
+        * ApiKey
+        * Index
+        * MaxPayloadSize
         * FlushInterval
 
 ## Gotchas
